@@ -12,7 +12,7 @@ const loaders = require('./loaders');
 function exposeAttributes(collection) {
     function exposeModelAttributes(item) {
         // Make sure that relations are excluded
-        return Object.assign(item, item.serialize({ shallow: true }));
+        return Object.assign(item, JSON.parse(JSON.stringify(item)));
     }
     if (collection) {
         if (collection.hasOwnProperty('length')) {
